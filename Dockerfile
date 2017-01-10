@@ -6,18 +6,15 @@ RUN apt-get -y update
 RUN apt-get -y install cron
 RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
+RUN apt-get -y install rsyslog
 # autoclean
 RUN apt-get clean
 RUN apt-get autoclean
 RUN apt-get autoremove
-# create work dir
-RUN ["mkdir", "-p", "/usr/src/app"]
-WORKDIR /usr/src/app
 # init timezone
 RUN ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
-# Install rsyslog to keep container running.
-RUN apt-get update
-RUN apt-get -y install rsyslog
+# create work dir
+RUN ["mkdir", "-p", "/usr/src/app"]
 # Copy files
 COPY crontabfile /usr/src/app
 COPY wake-me-up.py /usr/src/app
