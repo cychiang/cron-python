@@ -1,0 +1,1 @@
+* * * * *  python3 /usr/src/app/wake-me-up.py cron >> /var/log/cron.log 2>&1
