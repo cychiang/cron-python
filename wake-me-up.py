@@ -1,3 +1,3 @@
-import datetime
-now = datetime.datetime.now()
-print ("wake up at: %s" %now)
+from datetime import datetime
+now = datetime.now()
+print('wake up at: {}'.format(now))
